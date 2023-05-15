@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validating() {
+            let username = document.getElementById("txtUsername").value;
+            let pin = document.getElementById("txtPin").value;
+
+            let text = "";
+            if (username.length < 6 || username.length > 8) {
+                text = "Username length should be between 6-8 characters";
+            } else {
+                text = "Username is Ok";
+            }
+            document.getElementById("txtOutput").innerHTML = text;
+
+            let textPin = "";
+            for (var i = 0; i < pin.length; i++) {
+                var char1 = pin.charAt(i);
+                var cc = char1.charCodeAt(0);
+
+                if ((cc > 47 && cc < 58) || (cc > 64 && cc < 91) || (cc > 96 && cc < 123)) {
+                    textPin = "Pin is fine";
+                } else {
+                    textPin = "Pin is not alphanumeric";
+                }
+            }
+            document.getElementById("txtOutputPin").innerHTML = textPin;
+        }
+    </script>
+</head>
+<body>
+    <h2>Validate me!!</h2>
+    <label for="txtUsername">Username (6-8 characters)</label>
+    <input type="text" id="txtUsername">
+
+    <label for="txtPin">Pin</label>
+    <input type="text" id="txtPin">
+
+    <label for="txtStates">States</label>
+    <select name="States" id="txtStates">
+        <option value="Karnataka">Karnataka</option>
+        <option value="Andrapradesh">Andra Pradesh</option>
+        <option value="Kerala">Kerala</option>
+    </select>
+
+    <button onclick="validating()" id="btnValidate">Check Form</button>
+
+    <h4 id="txtOutput"></h4>
+    <h4 id="txtOutputPin"></h4>
+
+    <h3>Radio Buttons</h3>
+    <input type="radio" id="Milk" name="Food" value="Milk">
+    <label for="Milk">Milk</label><br>
+
+    <input type="radio" id="Butter" name="Food" value="Butter">
+    <label for="Butter">Butter</label><br>
+
+    <input type="radio" id="Cheese" name="Food" value="Cheese">
+    <label for="Cheese">Cheese</label>
+</body>
+</html>
